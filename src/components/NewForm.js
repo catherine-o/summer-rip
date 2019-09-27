@@ -16,7 +16,7 @@ export default class NewForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.addDeath(this.state)
     }
 
     render(){

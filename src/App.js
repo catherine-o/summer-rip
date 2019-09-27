@@ -12,8 +12,7 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:8080/')
       .then(response => response.json())
-      // .then(result => console.log(result))
-      .then(result => this.setState({deaths: result["deaths"]}))
+      .then(deaths => this.setState({ deaths }))
   }
 
   addDeath = (inputs) => {
@@ -21,7 +20,8 @@ class App extends Component {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(inputs)
-    })
+    }).then(res => res.json())
+    .then(death => this.setState({deaths: [...this.state.deaths, death]}))
   }
 
   updateSelected = (death) => {
@@ -31,6 +31,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+        <NewForm addDeath={this.addDeath}/>
         <Container deaths={this.state.deaths} updateSelected={this.updateSelected} />
       </div>
     )
