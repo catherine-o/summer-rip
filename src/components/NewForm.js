@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Form.css'
 
 export default class NewForm extends Component {
 
@@ -21,7 +22,7 @@ export default class NewForm extends Component {
 
     render(){
         return(
-            <div>
+            <div className='form'>
                 <form onSubmit={this.handleSubmit}>
                     <label for='name'>Name: </label>
                     <input name='name' value={this.state.name} onChange={this.handleChange}/>
