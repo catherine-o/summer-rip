@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Cards.css'
 
-export default function Cards({death, updateSelected}) {
+export default class Cards extends Component {
 
-    return (
-        <div>
-            <img className='death-image'
-                // onClick={updateSelected(death)}
-                src={death.image}
-                alt='death'
-            />
-        </div>
-    )
+    handleClick = (death) => {
+        this.props.updateSelected(death)
+    }
+    
+    render() {
+        return (
+            <div>
+                <img className='death-image'
+                    onClick={() => this.handleClick(this.props.death)}
+                    src={this.props.death.image}
+                    alt='death'
+                />
+            </div>
+        )
+    }
 }

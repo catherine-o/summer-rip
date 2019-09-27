@@ -12,7 +12,6 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:8080/')
       .then(response => response.json())
-      // .then(result => console.log(result))
       .then(result => this.setState({deaths: result["deaths"]}))
   }
 
@@ -22,6 +21,8 @@ class App extends Component {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(inputs)
     })
+    .then(response => response.json())
+    .then(death => this.setState({deaths: [...this.state.deaths, death]}))
   }
 
   updateSelected = (death) => {
