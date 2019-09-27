@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Container from './components/Container'
+import NewForm from './components/NewForm'
 import './App.css';
 
 class App extends Component {
   state = {
-    deaths: []
+    deaths: [],
+    selectedCard: ''
   }
 
   componentDidMount() {
@@ -14,10 +16,22 @@ class App extends Component {
       .then(result => this.setState({deaths: result["deaths"]}))
   }
 
+  addDeath = (inputs) => {
+    fetch('http://localhost:8080', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(inputs)
+    })
+  }
+
+  updateSelected = (death) => {
+    this.setState({ selectedCard: death })
+  }
+
   render(){
     return (
       <div className="App">
-        <Container deaths={this.state.deaths} />
+        <Container deaths={this.state.deaths} updateSelected={this.updateSelected} />
       </div>
     )
   }

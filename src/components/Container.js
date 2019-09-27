@@ -6,7 +6,7 @@ export default class Container extends Component {
     createCards = () => {
         console.log(this.props.deaths)
         return this.props.deaths.map(death => {
-            return <Card death={death} />
+            return <Card death={death} updateSelected={this.props.updateSelected} />
         })
     }
 
