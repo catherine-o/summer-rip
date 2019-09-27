@@ -1,1 +1,11 @@
+.App {
+    background-color: black;
+}
 
+header {
+    height: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 75px;
+}

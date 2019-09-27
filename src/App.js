@@ -31,7 +31,8 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <NewForm addDeath={this.addDeath}/>
+        <header>Summer.RIP</header><br/>
+        <NewForm addDeath={this.addDeath}/> <br/>
         <Container deaths={this.state.deaths} updateSelected={this.updateSelected} />
       </div>
     )
