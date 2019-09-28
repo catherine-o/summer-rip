@@ -1,6 +1,8 @@
 ## Name.com & Flatiron Hackathon 9.26.19
 Domain name given(theme): summer.rip
 
+![](https://media.giphy.com/media/LqfwGEULoJJCKOfsM3/giphy.gif)
+
 Backend:
 [https://github.com/ethancollins0/Hackathon-summer](https://github.com/ethancollins0/Hackathon-summer)
 
